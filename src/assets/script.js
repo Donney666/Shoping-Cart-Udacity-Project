@@ -41,6 +41,11 @@
   function addProductToCart(productId) {
     // Find the product in the products array
     let product = products.find(p => p.productId === productId);
+
+    if (!product) {
+      console.error(`Product with ID ${productId} not found.`);
+      return; // Exit the function if the product doesn't exist
+    }
   
     let productInCart = findProductInCart(productId);
   
